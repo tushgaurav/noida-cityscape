@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.turbo/
+*.log
+*.tsbuildinfo
+.DS_Store
+.env
+.env.*
+!.env.example
+coverage/
+
+packages/osm-pipeline/data/raw/

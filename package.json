@@ -1,0 +1,23 @@
+{
+  "name": "noida-city",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.15.1",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "dev": "turbo run dev --filter=@noida/web",
+    "build": "turbo run build",
+    "preview": "pnpm --filter @noida/web preview",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "data:fetch": "pnpm --filter @noida/osm-pipeline run fetch",
+    "data:build": "pnpm --filter @noida/osm-pipeline run build:data",
+    "data": "pnpm data:fetch && pnpm data:build"
+  },
+  "devDependencies": {
+    "turbo": "2.11.10",
+    "typescript": "6.0.3"
+  }
+}
