@@ -12,6 +12,11 @@ const right = new Vector3();
 const move = new Vector3();
 
 export function OrbitRig() {
+  const mode = useAppStore((state) => state.mode);
+  return mode === 'orbit' ? <OrbitControlsRig /> : null;
+}
+
+function OrbitControlsRig() {
   const controls = useRef<ComponentRef<typeof MapControls>>(null);
   const camera = useThree((state) => state.camera);
 
@@ -60,6 +65,7 @@ export function OrbitRig() {
   return (
     <MapControls
       ref={controls}
+      target={cameraState.orbitTarget.toArray()}
       enabled={false}
       enableDamping
       dampingFactor={0.08}
